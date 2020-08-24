@@ -1,7 +1,9 @@
 using System;
 using System.Xml;
 
-
+/// <summary>
+/// Assumption: valueOne and valueTwo are positive int
+/// </summary>
 namespace Math
 {
     public class Program
@@ -25,9 +27,29 @@ namespace Math
             {
                 return data.ValueOne / data.ValueTwo;
             }
+           
+            if (data.Oper.Equals("Power"))
+            {
+
+                return Pow(data.ValueOne, data.ValueTwo);
+            }
+           
             else
                 return -999999;
 
+        }
+
+        public static int Pow(int baseNumber, int expNumber)
+        {
+            int result = 1;
+
+            for (int i = 1; i <= expNumber; i++)
+            {
+                
+                    result = result * baseNumber;
+                
+            }
+            return result;
         }
         public static string getOperater(string op) {
             if (op.Equals("SUM"))
@@ -38,6 +60,8 @@ namespace Math
                 return "-";
             else if (op.Equals("DIVIDE"))
                 return "/";
+            else if (op.Equals("Power"))
+                return "**";
             else
                 return "Invalid Operator";
         }

@@ -64,6 +64,29 @@ namespace MathUnitTest
         }
         #endregion DataInfo_Constructor
 
+        #region Program_Power
+        [TestMethod]
+        public void Test_Power()
+        {
+            // Arrange
+            int baseNumber = 2;
+            int expNumber = 3;
+
+
+            // Act
+            int actualPower = Program.Pow(baseNumber, expNumber);
+
+            // Assert
+            const int expectedPower = 8;
+           
+            Assert.AreEqual(expectedPower, actualPower);
+
+
+
+
+        }
+        #endregion Program_ConstantInt
+
         #region Program_DoMath
         [TestMethod]
         public void Test_DoMath()
@@ -73,6 +96,7 @@ namespace MathUnitTest
             DataInfo calSUB = new DataInfo("Mike", "SUB", 9, 5);
             DataInfo calMULTIPLY = new DataInfo("Mike", "MULTIPLY", 9, 5);
             DataInfo calDIVIDE = new DataInfo("Mike", "DIVIDE", 9, 3);
+            DataInfo calPower = new DataInfo("Coco", "Power", 2, 3);
             DataInfo calInvalidOperator = new DataInfo("Mike", "Mean", 9, 3);
 
 
@@ -82,6 +106,7 @@ namespace MathUnitTest
             int actualSUB = Program.doMath(calSUB);
             int actualMULTIPLY = Program.doMath(calMULTIPLY);
             int actualDIVIDE = Program.doMath(calDIVIDE);
+            int actualPower = Program.doMath(calPower);
             int actualInvalidOperator = Program.doMath(calInvalidOperator);
 
             // Assert
@@ -89,12 +114,14 @@ namespace MathUnitTest
             const int expectedSUB = 4;
             const int expectedMULTIPLY = 45;
             const int expectedDIVIDE = 3;
+            const int expectedPower = 8;
             const int expectedInvalidOperator = -999999;
 
             Assert.AreEqual(expectedSUM, actualSUM);
             Assert.AreEqual(expectedSUB, actualSUB);
             Assert.AreEqual(expectedMULTIPLY, actualMULTIPLY);
             Assert.AreEqual(expectedDIVIDE, actualDIVIDE);
+            Assert.AreEqual(expectedPower, actualPower);
             Assert.AreEqual(expectedInvalidOperator, actualInvalidOperator);
 
         }
@@ -157,6 +184,8 @@ namespace MathUnitTest
 
         }
         #endregion Program_PrintResult
+
+
 
         #region Program_CostantInt
         [TestMethod]
